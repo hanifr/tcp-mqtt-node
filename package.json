@@ -1,0 +1,22 @@
+{
+    "name": "tcp-mqtt-router",
+    "version": "1.0.0",
+    "description": "dddd",
+    "main": "index.js",
+    "scripts": {
+      "test": "none"
+    },
+    "repository": {
+      "type": "git",
+      "url": "hanifr"
+    },
+    "keywords": [
+      "tcp-listener"
+    ],
+    "author": "hanifr",
+    "license": "ISC",
+    "dependencies": {
+      "mqtt": "^5.1.4"
+    }
+  }
+  
