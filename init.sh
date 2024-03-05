@@ -80,3 +80,9 @@ if ! chmod 600 .env; then
 fi
 
 echo "${_GREEN}Setup complete.${_RESET}"
+sleep 2
+# Deploy the application using Docker Compose
+echo "${_YELLOW}Deploying the application...${_RESET}"
+docker-compose up -d
+
+echo "${_GREEN}Application deployed successfully!${_RESET}"
