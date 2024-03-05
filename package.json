@@ -4,19 +4,19 @@
     "description": "dddd",
     "main": "index.js",
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
-      "type": "git",
-      "url": "hanifr"
+        "type": "git",
+        "url": "hanifr"
     },
     "keywords": [
-      "tcp-listener"
+        "tcp-listener"
     ],
     "author": "hanifr",
     "license": "ISC",
     "dependencies": {
-      "mqtt": "^5.1.4"
+        "dotenv": "^16.4.5",
+        "mqtt": "^5.1.4"
     }
-  }
-  
+}

@@ -1,0 +1,20 @@
+version: "2"
+services:
+  backend:
+    build: .
+    volumes:
+      - office_backend:/var/lib/office_backend
+    restart: always
+    environment:
+      TZ: Asia/Kuala_Lumpur
+      VIRTUAL_HOST: ${TCP_HOST}
+      LETSENCRYPT_HOST: ${TCP_HOST}
+      LETSENCRYPT_EMAIL: ${TCP_EMAIL}
+    ports:
+      - "${TCP_PORT}:${TCP_PORT}"
+volumes:
+  office_backend:
+networks:
+ default:
+  external:
+   name: nginxproxy_default
