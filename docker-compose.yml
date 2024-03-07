@@ -1,7 +1,7 @@
 version: "2"
 services:
   backend:
-    build: .
+    image: tcpmqtt/tcp-mqtt
     volumes:
       - office_backend:/var/lib/office_backend
     restart: always
