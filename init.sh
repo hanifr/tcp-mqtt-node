@@ -23,31 +23,11 @@ if ! sudo apt update; then
 fi
 
 sleep 2
-echo "${_YELLOW}Docker Installation :: started.${_RESET}"
-echo
-
-if ! 
-sudo apt-get remove --auto-remove docker docker-engine docker.io containerd runc docker-ce docker-ce-cli; 
-then
-    echo "${_RED}ERROR: Failed to remove old Docker packages.${_RESET}" >&2
+# Check if Docker is installed
+if ! command -v docker &> /dev/null; then
+    echo "${_RED}Docker is not installed. Please install Docker before proceeding.${_RESET}"
     exit 1
 fi
-
-sleep 2
-
-if ! sudo apt-get update && \
-    sudo apt-get install -y ca-certificates curl gnupg lsb-release && \
-    sudo mkdir -p /etc/apt/keyrings && \
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg && \
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null && \
-    sudo apt-get update && \
-    sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin; then
-    echo "${_RED}ERROR: Failed to install Docker.${_RESET}" >&2
-    exit 1
-fi
-
-echo "${_YELLOW}Docker Installation :: completed.${_RESET}"
-echo
 
 sleep 2
 echo "${_GREEN}(Creating .env file for docker-compose deployment)${_RESET}"
