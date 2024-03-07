@@ -1,10 +1,13 @@
 version: "2"
+
 services:
   backend:
     image: tcpmqtt/tcp-mqtt
     volumes:
       - office_backend:/var/lib/office_backend
     restart: always
+    env_file:
+      - .env
     environment:
       TZ: Asia/Kuala_Lumpur
       VIRTUAL_HOST: ${TCP_HOST}
@@ -12,9 +15,11 @@ services:
       LETSENCRYPT_EMAIL: ${TCP_EMAIL}
     ports:
       - "${TCP_PORT}:${TCP_PORT}"
+
 volumes:
   office_backend:
+
 networks:
- default:
-  external:
-   name: nginxproxy_default
+  default:
+    external:
+      name: nginxproxy_default
