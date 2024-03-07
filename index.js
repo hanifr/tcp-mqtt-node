@@ -8,7 +8,7 @@ dotenv.config();
 
 const TCP_PORT = process.env.TCP_PORT || 7554;
 const TCP_IP = '0.0.0.0';
-const MQTT_BROKER = process.env.MQTT_BROKER || 'mqtt://txio.uitm.edu.my';
+const MQTT_BROKER = `mqtt://`+ process.env.MQTT_BROKER || 'mqtt://txio.uitm.edu.my';
 const MQTT_TOPIC = process.env.MQTT_TOPIC || 'tcp/raw';
 
 // Create an MQTT client
